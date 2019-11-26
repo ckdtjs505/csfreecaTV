@@ -9,6 +9,13 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "build": "babel index.js -d dist",
+    "start": "npm run build && nodemon dist/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "nodemon": "^2.0.1"
   }
 }
