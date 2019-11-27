@@ -6,16 +6,15 @@
   "author": "ckdtjs505",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
     "express": "^4.17.1"
   },
   "scripts": {
-    "build": "babel index.js -d dist",
-    "start": "npm run build && nodemon dist/index.js"
+    "start": "nodemon --exec babel-node index.js --delay 2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.4",
-    "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
     "nodemon": "^2.0.1"
   }
 }
