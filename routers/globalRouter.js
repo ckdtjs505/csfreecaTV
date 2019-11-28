@@ -1,13 +1,14 @@
 import express from "express";
 import routes from "../routes";
+import { home, join, login, logout, search } from "../controllers/globalController";
 
 const grobalRouter = express.Router();
 
-grobalRouter.get(routes.home, (req, res) => res.send("Home") );
-grobalRouter.get(routes.join, (req, res) => res.send("Join") );
-grobalRouter.get(routes.login, (req, res) => res.send("login") );
-grobalRouter.get(routes.logout, (req, res) => res.send("logout") );
-grobalRouter.get(routes.search, (req, res) => res.send("search") );
+grobalRouter.get(routes.home, home);
+grobalRouter.get(routes.join, join);
+grobalRouter.get(routes.login, login);
+grobalRouter.get(routes.logout, logout);
+grobalRouter.get(routes.search, search);
 
 export default grobalRouter;
 
