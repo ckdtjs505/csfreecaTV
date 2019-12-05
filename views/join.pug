@@ -1,4 +1,11 @@
 extends layout/main
 
 block content
-    p join
+    .form__container
+        form(action=routes.join, method="post")
+            input(type="email", name="email", placeholder="아이디")
+            input(type="password", name="password", placeholder="비밀번호")
+            input(type="password", name="password2", placeholder="비밀번호 확인")
+            input(type="submit", value="회원가입")
+        include partials/socialLogin
+            
