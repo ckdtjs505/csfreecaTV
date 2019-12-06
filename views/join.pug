@@ -3,7 +3,8 @@ extends layout/main
 block content
     .form__container
         form(action=routes.join, method="post")
-            input(type="email", name="email", placeholder="아이디")
+            input(type="text", name="name", placeholder="이름")
+            input(type="email", name="email", placeholder="이메일 주소")
             input(type="password", name="password", placeholder="비밀번호")
             input(type="password", name="password2", placeholder="비밀번호 확인")
             input(type="submit", value="회원가입")

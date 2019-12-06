@@ -4,7 +4,9 @@ header.header
             i.fab.fa-youtube
     .header__column
         form(action=routes.search, method="get")
-            input(type="text", placeholder="Search your word", name="term")
+            input(type="text", placeholder="검색", name="search_query")
+            button
+                i.fas.fa-search
     .header__column
         ul
             li
