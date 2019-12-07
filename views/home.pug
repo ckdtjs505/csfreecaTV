@@ -1,4 +1,8 @@
 extends layout/main
 
 block content
-    p Home page 
+    .video 
+        each video in videos    
+            h3= video.title 
+            h4= video.decription
+            video(src=video.videofile, controls=true)
