@@ -1,4 +1,8 @@
 extends layout/main
 
 block content
-    p editVideo
+    .form-container
+        input(type="text", name="title", placeholder="제목")
+        input(type="text", name="desciption", placeholder="설명")
+        input(type="submit", value="업로드")
+    a.form-container__link--delete(href=`/videos${routes.deleteVideo}`) 삭제하기
