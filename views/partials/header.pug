@@ -8,8 +8,17 @@ header.header
             button
                 i.fas.fa-search
     .header__column
-        ul
-            li
-                a(href=routes.join) Join
-            li
-                a(href=routes.login) Login
+        if(!user.isAuthenticated)
+            ul
+                li
+                    a(href=routes.join) Join
+                li
+                    a(href=routes.login) Login
+        else 
+            ul
+                li
+                    a(href=routes.upload) Upload
+                li
+                    a(href=routes.userDetail) Profile
+                li
+                    a(href=routes.logout) Logout
