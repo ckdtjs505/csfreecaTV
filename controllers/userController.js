@@ -31,8 +31,15 @@ export const users = (req, res) => res.render("users", { pageTitle: "Users" });
 export const userDetail = (req, res) =>
   res.render("userDetail", { pageTitle: "UserDetail" });
 
-export const editProfile = (req, res) =>
+export const getEditProfile = (req, res) =>
   res.render("editProfile", { pageTitle: "EditProfile" });
+
+export const postEditProfile = (req, res) => {
+  const {
+    body: { file, name, email }
+  } = req;
+  res.redirect(routes.userDetail(1));
+};
 
 export const changePassword = (req, res) =>
   res.render("changePassword", { pageTitle: "ChangePassword" });
