@@ -1,5 +1,3 @@
-import { deflate } from "zlib";
-
 // global
 
 const HOME = "/";
@@ -11,7 +9,7 @@ const SEARCH = "/search";
 // users
 
 const USERS = "/users";
-const USER_DETAIL = ":/id";
+const USER_DETAIL = "/:id";
 const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
 
@@ -31,7 +29,13 @@ const routes = {
   search: SEARCH,
 
   users: USERS,
-  userDetail: USER_DETAIL,
+  userDetail: id => {
+    if (id) {
+      return `/users/${id}`;
+    } else {
+      return USER_DETAIL;
+    }
+  },
   editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD,
 
