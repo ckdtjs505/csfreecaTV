@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-mongoose.connect("mongodb://localhost:27017/cstube", {
+dotenv.config();
+
+mongoose.connect(process.env.DB_HOST, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
@@ -8,8 +11,9 @@ mongoose.connect("mongodb://localhost:27017/cstube", {
 
 const db = mongoose.connection;
 
-const handleOpen = () => console.log("✔ Connect to DB");
-const handleError = error => console.log(`😂 Error on DB connection :${error}`);
+const handleOpen = () => console.log("✅  Connect to DB");
+const handleError = error =>
+  console.log(`❌  Error on DB connection :${error}`);
 
 db.once("open", handleOpen);
 db.on("error", handleError);
