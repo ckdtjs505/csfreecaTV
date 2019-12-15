@@ -4,7 +4,10 @@ const videoSchema = new mongoose.Schema({
   title: String,
   fileUrl: String,
   decription: String,
-  Views: Number,
+  views: {
+    type: Number,
+    default: 0
+  },
   data: {
     type: Date,
     default: Date.now
