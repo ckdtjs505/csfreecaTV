@@ -4,6 +4,7 @@ block content
     .video__player
         video.video(src=`/${video.fileUrl}`, controls=true)
     .video__info
+        a(href=routes.editVideo(video.id)) Edit video
         h3.video__title= video.title
         h5.video__view= video.views
         h5.video__comment= video.comment
