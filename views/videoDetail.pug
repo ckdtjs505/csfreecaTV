@@ -1,4 +1,10 @@
 extends layout/main
 
 block content
-    p videoDetail
+    .video__player
+        video.video(src=`/${video.fileUrl}`, controls=true)
+    .video__info
+        h3.video__title= video.title
+        h5.video__view= video.views
+        h5.video__comment= video.comment
+        p.video__description= video.description
