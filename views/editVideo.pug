@@ -6,4 +6,4 @@ block content
             input(type="text", name="title", placeholder="제목", required = true, value = video.title)
             textarea(type="text", name="description", placeholder="설명", required = true)=  video.description
             input(type="submit", value="업로드")
-    a.form-container__link--delete(href=routes.deleteVideo(user.id)) 삭제하기
+    a.form-container__link--delete(href=routes.deleteVideo(video.id)) 삭제하기
