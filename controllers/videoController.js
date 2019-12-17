@@ -75,8 +75,6 @@ export const deleteVideo = async (req, res) => {
     await Video.deleteOne({ _id: id });
     res.redirect(routes.home);
   } catch (error) {
-    res.render("deleteVideo", { pageTitle: "Deletet Video" });
-    // res.redirect(routes.home);
+    res.redirect(routes.home);
   }
-  console.log(id);
 };
