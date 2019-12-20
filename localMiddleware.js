@@ -1,5 +1,5 @@
-import routes from "./routes";
 import multer from "multer";
+import routes from "./routes";
 
 const multerVideo = multer({ dest: "video/" });
 
@@ -8,7 +8,7 @@ export const localMiddleware = (req, res, next) => {
   res.locals.routes = routes;
   res.locals.user = {
     isAuthenticated: true,
-    id: 1
+    id: "ckdtjs505"
   };
   next();
 };
