@@ -7,7 +7,7 @@ export const localMiddleware = (req, res, next) => {
   res.locals.title = "csTube";
   res.locals.routes = routes;
   res.locals.user = {
-    isAuthenticated: true,
+    isAuthenticated: false,
     id: "ckdtjs505"
   };
   next();

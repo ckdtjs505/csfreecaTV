@@ -10,9 +10,12 @@ header.header
         if(!user.isAuthenticated)
             ul
                 li
-                    a(href=routes.join) Join
+                    a(href=`/videos${routes.upload}`)
+                        img(src="/img/up-arrow.png", alt="", srcset="")
                 li
-                    a(href=routes.login) Login 
+                    a(href=routes.join) 회원가입
+                li
+                    a(href=routes.login) 로그인 
         else 
             ul
                 li
