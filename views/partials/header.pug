@@ -2,9 +2,8 @@ header.header
     .header__column
         a(href=routes.home)
             img(src="/img/rogo.png", alt="", srcset="")
-    .header__column
         form(action=routes.search, method="get")
-            input(type="text", placeholder="검색", name="search_query")
+            input(type="text", name="search_query")
             button
                 i.fas.fa-search
     .header__column
@@ -17,7 +16,8 @@ header.header
         else 
             ul
                 li
-                    a(href=`/videos${routes.upload}`) Upload
+                    a(href=`/videos${routes.upload}`)
+                        i.fas.fa-arrow-circle-up
                 li
                     a(href=routes.userDetail(user.id)) Profile
                 li

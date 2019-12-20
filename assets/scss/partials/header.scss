@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  height: 67px;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+
+  .header__column {
+    display: flex;
+    margin: auto 1rem;
+    & form {
+      margin-right: 1rem;
+      margin-left: 1rem;
+      width: 244px;
+      min-height: 29px;
+      border: 1px solid $lineColor;
+      border-radius: 3px;
+    }
+    & button {
+      width: 29px;
+      height: 29px;
+      background-color: $bgColor;
+      color: $lineColor;
+      border: 0;
+      border-radius: 3px;
+    }
+    & input {
+      width: 203px;
+      padding: 8px 0px 7px 9px;
+      font-size: 12px;
+      border: 0;
+      color: #181818;
+    }
+
+    & ul {
+      display: flex;
+      justify-content: space-around;
+      width: 200px;
+      & li {
+        text-align: center;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
