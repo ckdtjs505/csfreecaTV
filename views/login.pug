@@ -1,9 +1,16 @@
 extends layout/main
 
 block content
+    .img-container 
+        img(src="/img/rogo2.png", alt="", srcset="")
+    .text-container 로그인 후 이용하실 수 있습니다
     .form-container
         form(action=routes.login, method="post")
             input(type="email", name="email", placeholder="아이디" required = true)
             input(type="password", name="password", placeholder="비밀번호" required = true)
             input(type="submit", value="로그인")
         include partials/socialLogin
+    .account-container 
+        a(href=routes.join) 회원가입
+        | |
+        a(href="#") 비밀번호 찾기

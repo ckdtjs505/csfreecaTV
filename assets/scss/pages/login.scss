@@ -1,6 +1,20 @@
+.img-container {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.text-container {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: $lineColor;
+}
 .form-container {
   display: flex;
   flex-direction: column;
+  margin-top: 1.5rem;
+
   form {
     margin: auto;
     display: flex;
@@ -21,5 +35,13 @@
       font-weight: bold;
       color: white;
     }
+  }
+}
+
+.account-container {
+  text-align: center;
+  & a {
+    margin: auto 0.5rem;
+    color: $lineColor;
   }
 }
