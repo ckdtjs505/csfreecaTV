@@ -1,12 +1,14 @@
 extends layout/main
 
 block content
-    .form__container
+    .img-container 
+        img(src="/img/rogo2.png", alt="", srcset="")
+    .form-container
         form(action=routes.join, method="post")
             input(type="text", name="name", placeholder="이름", required = true)
             input(type="email", name="email", placeholder="이메일 주소", required = true)
             input(type="password", name="password", placeholder="비밀번호", required = true)
             input(type="password", name="password2", placeholder="비밀번호 확인", required = true)
             input(type="submit", value="회원가입")
-        include partials/socialLogin
-            
+        
+        
