@@ -35,7 +35,7 @@
     & ul {
       display: flex;
       justify-content: space-around;
-      width: 200px;
+      width: 160px;
       color: $lineColor;
       & li {
         text-align: center;
@@ -43,8 +43,8 @@
         font-size: 14px;
         line-height: 18px;
         & img {
-          width: 20px;
-          height: 20px;
+          width: 18px;
+          height: 18px;
         }
       }
     }
