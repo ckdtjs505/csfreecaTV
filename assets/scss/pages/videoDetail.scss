@@ -1,0 +1,45 @@
+.video__player {
+  margin: auto;
+  & video {
+    width: 100%;
+  }
+}
+.video__info {
+  & .video__view {
+    padding-top: 1rem;
+    padding-left: 3rem;
+    display: flex;
+    border-top: 1px solid #f0f0f0;
+    & img {
+      margin-right: 0.5rem;
+    }
+  }
+  & .video__edit {
+    height: 1rem;
+    text-align: right;
+    & a {
+      margin: 1rem;
+      font-size: 12px;
+      line-height: 5rem;
+      color: red;
+    }
+
+    & .edit {
+      color: blue;
+    }
+  }
+  & .video__title {
+    position: relative;
+    font-size: 18px;
+    margin: 6px 3rem 12px;
+    letter-spacing: -1px;
+    font-weight: bold;
+  }
+  & .video__description {
+    padding-top: 1rem;
+    padding-left: 3rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+}

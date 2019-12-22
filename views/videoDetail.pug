@@ -4,8 +4,15 @@ block content
     .video__player
         video.video(src=`/${video.fileUrl}`, controls=true)
     .video__info
-        a(href=routes.editVideo(video.id)) Edit video
-        h3.video__title= video.title
-        h5.video__view= video.views
+        if(user.isAuthenticated === true)
+            .video__edit
+                a(href=routes.editVideo(video.id)).edit 수정
+                a(href=routes.deleteVideo(video.id)).delete 삭제
+        .video__view
+            img(src="/img/play.png", alt="", srcset="")  
+            .video__view_title= video.views        
+        .video__title= video.title
+        .video__description= video.description
+        
         h5.video__comment= video.comment
-        p.video__description= video.description
+        
