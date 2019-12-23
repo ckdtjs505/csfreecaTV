@@ -3,4 +3,6 @@ mixin videoBlock(video = {})
         a(href=routes.videoDetail(video.id))
             video.videoBlock__thumnbnail(src=video.videofile, controls=true)
             h4.videoBlock__title= video.title
-            h6.videoBlock__views= video.views
+            .videoBlock__views
+                img(src="/img/play.png", alt="", srcset="")  
+                h6.videoBlock__views_title= video.views 

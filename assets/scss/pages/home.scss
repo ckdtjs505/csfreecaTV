@@ -1,0 +1,33 @@
+.video {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+  margin-top: 1rem;
+}
+.videoBlock {
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  & a {
+    width: 100%;
+
+    & video {
+      border-top: 1px solid #d8d8d8;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+      width: 100%;
+    }
+    & .videoBlock__title {
+      margin: 0.5rem 0 0.5rem 0.5rem;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    & .videoBlock__views {
+      display: flex;
+      margin: 0.5rem 0 0.5rem 0.5rem;
+      & img {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
