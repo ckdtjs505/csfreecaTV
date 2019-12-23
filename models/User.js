@@ -1,17 +1,15 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import passportLocalMongoose from "passport-local-mongoose";
 
-const { Schema } = mongoose;
-
-const UserSchema = new Schema({
-  name: String,
+const userSchema = new Schema({
+  user: String,
   email: String,
   avatarUrl: String,
   facebookId: Number,
   githubId: Number
 });
 
-UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });
+userSchema.plugin(passportLocalMongoose, { usernameField: "email" });
 
-const model = mongoose.model("user", UserSchema);
+const model = mongoose.model("User", userSchema);
 export default model;
