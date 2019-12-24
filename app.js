@@ -4,6 +4,7 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import passport from "passport";
+import session from "express-session";
 import { localMiddleware } from "./localMiddleware";
 import routes from "./routes";
 import globalRouter from "./routers/globalRouter";
@@ -23,7 +24,17 @@ app.use(cookieParser());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true
+  })
+);
+
 app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(localMiddleware);
 

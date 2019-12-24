@@ -30,11 +30,11 @@ export const getLogin = (req, res) =>
 
 export const postLogin = passport.authenticate("local", {
   successRedirect: routes.home,
-  failureRedirect: routes.join
+  failureRedirect: routes.login
 });
 
 export const logout = (req, res) => {
-  // 로그아웃 기능 추가
+  req.logout();
   res.redirect(routes.home);
 };
 
