@@ -7,7 +7,7 @@ header.header
             button
                 i.fas.fa-search
     .header__column
-        if(!user.isAuthenticated)
+        if !user
             ul
                 li
                     a(href=`/videos${routes.upload}`)
@@ -23,6 +23,6 @@ header.header
                     a(href=`/videos${routes.upload}`)
                         img(src="/img/up-arrow.png", alt="", srcset="")
                 li
-                    a(href=routes.userDetail(user.id)) #{user.id}
+                    a(href=routes.userDetail(user.id)) #{user.name}
                 li
                     a(href=routes.logout) logout
