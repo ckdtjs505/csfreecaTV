@@ -14,7 +14,7 @@ const grobalRouter = express.Router();
 grobalRouter.get(routes.home, home);
 
 grobalRouter.get(routes.join, getJoin);
-grobalRouter.post(routes.join, postJoin);
+grobalRouter.post(routes.join, postJoin, postLogin);
 
 grobalRouter.get(routes.login, getLogin);
 grobalRouter.post(routes.login, postLogin);
