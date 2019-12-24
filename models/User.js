@@ -2,7 +2,7 @@ import mongoose, { Schema } from "mongoose";
 import passportLocalMongoose from "passport-local-mongoose";
 
 const userSchema = new Schema({
-  user: String,
+  name: String,
   email: String,
   avatarUrl: String,
   facebookId: Number,
