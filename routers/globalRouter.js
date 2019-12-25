@@ -8,16 +8,17 @@ import {
   getLogin,
   postLogin
 } from "../controllers/userController";
+import { onlyPublic } from "../localMiddleware";
 
 const grobalRouter = express.Router();
 
 grobalRouter.get(routes.home, home);
 
-grobalRouter.get(routes.join, getJoin);
-grobalRouter.post(routes.join, postJoin, postLogin);
+grobalRouter.get(routes.join, onlyPublic, getJoin);
+grobalRouter.post(routes.join, onlyPublic, postJoin, postLogin);
 
-grobalRouter.get(routes.login, getLogin);
-grobalRouter.post(routes.login, postLogin);
+grobalRouter.get(routes.login, onlyPublic, getLogin);
+grobalRouter.post(routes.login, onlyPublic, postLogin);
 
 grobalRouter.get(routes.logout, logout);
 
