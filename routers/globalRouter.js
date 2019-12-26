@@ -1,4 +1,5 @@
 import express from "express";
+import passport from "passport";
 import routes from "../routes";
 import { home, search } from "../controllers/videoController";
 import {
@@ -21,6 +22,17 @@ grobalRouter.get(routes.login, onlyPublic, getLogin);
 grobalRouter.post(routes.login, onlyPublic, postLogin);
 
 grobalRouter.get(routes.logout, logout);
+
+// github
+grobalRouter.get(routes.github, passport.authenticate("github"));
+
+grobalRouter.get(
+  routes.githubCallback,
+  passport.authenticate("github", { failureRedirect: routes.login }),
+  function complete(req, res) {
+    res.redirect(routes.home);
+  }
+);
 
 grobalRouter.get(routes.search, search);
 
