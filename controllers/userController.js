@@ -90,6 +90,7 @@ export const googleLoginCallback = async (_, __, profile, cb) => {
   const {
     _json: { sub, name, picture }
   } = profile;
+  const email = profile.emails[0].value;
   try {
     const user = await User.findOne({ name });
     if (user) {
@@ -99,10 +100,10 @@ export const googleLoginCallback = async (_, __, profile, cb) => {
     }
     const newUser = await User.create({
       name,
+      email,
       googleId: sub,
       avatarUrl: picture
     });
-    console.log(newUser);
     return cb(null, newUser);
   } catch (error) {
     console.log(error);

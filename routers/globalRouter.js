@@ -36,16 +36,12 @@ grobalRouter.get(
 
 grobalRouter.get(
   routes.google,
-  passport.authenticate("google", {
-    scope: ["profile"]
-  })
+  passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
 grobalRouter.get(
   routes.googleCallback,
-  passport.authenticate("google", {
-    failureRedirect: routes.login
-  }),
+  passport.authenticate("google", { failureRedirect: routes.login }),
   postGoogleLogIn
 );
 
