@@ -8,7 +8,8 @@ import {
   postJoin,
   getLogin,
   postLogin,
-  postGithubLogIn
+  postGithubLogIn,
+  postGoogleLogIn
 } from "../controllers/userController";
 import { onlyPublic } from "../localMiddleware";
 
@@ -31,6 +32,21 @@ grobalRouter.get(
   routes.githubCallback,
   passport.authenticate("github", { failureRedirect: routes.login }),
   postGithubLogIn
+);
+
+grobalRouter.get(
+  routes.google,
+  passport.authenticate("google", {
+    scope: ["profile"]
+  })
+);
+
+grobalRouter.get(
+  routes.googleCallback,
+  passport.authenticate("google", {
+    failureRedirect: routes.login
+  }),
+  postGoogleLogIn
 );
 
 grobalRouter.get(routes.search, search);

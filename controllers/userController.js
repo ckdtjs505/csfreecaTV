@@ -59,7 +59,7 @@ export const changePassword = (req, res) =>
 export const githubLoginCallback = async (_, __, profile, cb) => {
   const {
     // eslint-disable-next-line camelcase
-    _json: { id, username, avatar_url, email }
+    _json: { id, name, avatar_url, email }
   } = profile;
   try {
     const user = await User.findOne({ email });
@@ -70,10 +70,11 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
     }
     const newUser = await User.create({
       email,
-      name: username,
+      name,
       avatarUrl: avatar_url,
       githubId: id
     });
+    console.log(newUser);
     return cb(null, newUser);
   } catch (error) {
     console.log(error);
@@ -82,5 +83,33 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
 };
 
 export const postGithubLogIn = (req, res) => {
+  res.redirect(routes.home);
+};
+
+export const googleLoginCallback = async (_, __, profile, cb) => {
+  const {
+    _json: { sub, name, picture }
+  } = profile;
+  try {
+    const user = await User.findOne({ name });
+    if (user) {
+      user.googleId = sub;
+      user.save();
+      return cb(null, user);
+    }
+    const newUser = await User.create({
+      name,
+      googleId: sub,
+      avatarUrl: picture
+    });
+    console.log(newUser);
+    return cb(null, newUser);
+  } catch (error) {
+    console.log(error);
+    return cb(error);
+  }
+};
+
+export const postGoogleLogIn = (req, res) => {
   res.redirect(routes.home);
 };
