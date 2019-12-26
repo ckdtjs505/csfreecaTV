@@ -55,3 +55,32 @@ export const postEditProfile = (req, res) => {
 
 export const changePassword = (req, res) =>
   res.render("changePassword", { pageTitle: "ChangePassword" });
+
+export const githubLoginCallback = async (_, __, profile, cb) => {
+  const {
+    // eslint-disable-next-line camelcase
+    _json: { id, username, avatar_url, email }
+  } = profile;
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      user.githubId = id;
+      user.save();
+      return cb(null, user);
+    }
+    const newUser = await User.create({
+      email,
+      name: username,
+      avatarUrl: avatar_url,
+      githubId: id
+    });
+    return cb(null, newUser);
+  } catch (error) {
+    console.log(error);
+    return cb(error);
+  }
+};
+
+export const postGithubLogIn = (req, res) => {
+  res.redirect(routes.home);
+};
