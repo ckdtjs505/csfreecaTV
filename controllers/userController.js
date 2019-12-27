@@ -1,6 +1,7 @@
 import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
+import Video from "../models/Video";
 
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 
@@ -38,9 +39,10 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const getMe = (req, res) => {
+export const getMe = async (req, res) => {
+  const videos = await Video.find({}).sort({ _id: -1 });
   const { user } = req;
-  res.render("userDetail", { pageTitle: "UserDetail", user });
+  res.render("userDetail", { pageTitle: "UserDetail", user, videos });
 };
 
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
