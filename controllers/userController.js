@@ -38,6 +38,11 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
+export const getMe = (req, res) => {
+  const { user } = req;
+  res.render("userDetail", { pageTitle: "UserDetail", user });
+};
+
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
 
 export const userDetail = (req, res) =>

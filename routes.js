@@ -8,6 +8,7 @@ const SEARCH = "/search";
 
 // users
 
+const ME = "/me";
 const USERS = "/users";
 const USER_DETAIL = "/:id";
 const EDIT_PROFILE = "/edit-profile";
@@ -36,6 +37,7 @@ const routes = {
   logout: LOGOUT,
   search: SEARCH,
 
+  me: ME,
   users: USERS,
   userDetail: id => {
     if (id) {

@@ -23,6 +23,6 @@ header.header
                     a(href=`/videos${routes.upload}`)
                         img(src="/img/up-arrow.png", alt="", srcset="")
                 li
-                    a(href=routes.userDetail(user.id)) #{user.name}
+                    a(href=`/users${routes.me}`) #{user.name}
                 li
                     a(href=routes.logout) logout
