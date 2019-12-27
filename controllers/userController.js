@@ -87,10 +87,6 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
   }
 };
 
-export const postGithubLogIn = (req, res) => {
-  res.redirect(routes.home);
-};
-
 export const googleLoginCallback = async (_, __, profile, cb) => {
   const {
     _json: { sub, name, picture }
@@ -116,6 +112,33 @@ export const googleLoginCallback = async (_, __, profile, cb) => {
   }
 };
 
-export const postGoogleLogIn = (req, res) => {
+export const kakaoLoginCallback = async (_, __, profile, cb) => {
+  const {
+    _json: {
+      id,
+      properties: { nickname, profile_image: profileImg },
+      kakao_account: { email }
+    }
+  } = profile;
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      user.avatarUrl = profileImg;
+      user.save();
+      return cb(null, user);
+    }
+    const newUser = await User.create({
+      email,
+      name: nickname,
+      avatarUrl: profileImg
+    });
+    return cb(null, newUser);
+  } catch (error) {
+    console.log(error);
+    return cb(error);
+  }
+};
+
+export const postsnsLogIn = (req, res) => {
   res.redirect(routes.home);
 };

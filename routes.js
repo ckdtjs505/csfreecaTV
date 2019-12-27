@@ -30,6 +30,10 @@ const GitHubCallback = "/auth/github/callback";
 const Google = "/auth/google";
 const GoogleCallback = "/auth/google/callback";
 
+// kakao
+const Kakao = "/auth/kakao";
+const KakaoCallback = "/oauth/";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -75,7 +79,9 @@ const routes = {
   github: GitHub,
   githubCallback: GitHubCallback,
   google: Google,
-  googleCallback: GoogleCallback
+  googleCallback: GoogleCallback,
+  kakao: Kakao,
+  kakaoCallback: KakaoCallback
 };
 
 export default routes;
