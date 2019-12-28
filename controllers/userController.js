@@ -41,14 +41,30 @@ export const logout = (req, res) => {
 
 export const getMe = async (req, res) => {
   const videos = await Video.find({}).sort({ _id: -1 });
-  const { user } = req;
-  res.render("userDetail", { pageTitle: "UserDetail", user, videos });
+  res.render("userDetail", { pageTitle: "UserDetail", user: req.user, videos });
 };
 
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
 
-export const userDetail = (req, res) =>
-  res.render("userDetail", { pageTitle: "UserDetail" });
+export const userDetail = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+
+  try {
+    const user = await User.findOne({ _id: id });
+    if (user) {
+      try {
+        const videos = await Video.find({}).sort({ _id: 1 });
+        res.render("userDetail", { pageTitle: "UserDetail", user, videos });
+      } catch (error) {
+        res.render("userDetail", { pageTitle: "UserDetail", user, videos: [] });
+      }
+    }
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
 
 export const getEditProfile = (req, res) =>
   res.render("editProfile", { pageTitle: "EditProfile" });
