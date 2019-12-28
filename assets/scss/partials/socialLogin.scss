@@ -17,8 +17,15 @@
     color: white;
   }
 
-  & .social-login--facebook {
-    background-color: #3b5998;
+  & .social-login--google {
+    background-color: #ea4335;
+    border: 0;
     color: white;
+  }
+
+  & .social-login--kakao {
+    background-color: #f6d62e;
+    border: 0;
+    color: #3a1d1d;
   }
 }
