@@ -10,6 +10,10 @@
     border: 1px solid #bbb;
     border-radius: 5px;
     font-size: 15px;
+
+    & a {
+      display: block;
+    }
   }
 
   & .social-login--github {

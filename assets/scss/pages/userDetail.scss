@@ -27,6 +27,17 @@
       margin-bottom: 0.5rem;
     }
   }
+  & .user_edit {
+    display: flex;
+    flex-direction: column;
+    margin: auto 1rem;
+    & button {
+      border-radius: 3px;
+    }
+    & .edit_button {
+      margin-bottom: 0.5rem;
+    }
+  }
 }
 .user_video {
   margin: auto;

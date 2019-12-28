@@ -9,6 +9,13 @@ block content
         .user_content
             h4.profile__username= user.name
             h4.profile__content= `안녕하세요 ${user.name}의 방송국입니다`
+        .user_edit 
+            Button.edit_button
+                a(href=`/users${routes.editProfile}`)
+                    h4 수정   
+            Button.passwordChange_button
+                a(href=`/users${routes.changePassword}`)
+                    h4 비밀번호 변경
     .user_video 
         each video in videos    
             +videoBlock({
