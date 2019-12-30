@@ -6,7 +6,7 @@ const multerVideo = multer({ dest: "video/" });
 export const localMiddleware = (req, res, next) => {
   res.locals.title = "csTube";
   res.locals.routes = routes;
-  res.locals.user = req.user || null;
+  res.locals.loggedUser = req.user || null;
   next();
 };
 

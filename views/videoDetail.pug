@@ -4,7 +4,7 @@ block content
     .video__player
         video.video(src=`/${video.fileUrl}`, controls=true)
     .video__info
-        if user
+        if (loggedUser)
             .video__edit
                 a(href=routes.editVideo(video.id)).edit 수정
                 a(href=routes.deleteVideo(video.id)).delete 삭제
