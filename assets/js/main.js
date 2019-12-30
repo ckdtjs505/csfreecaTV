@@ -1,9 +1,9 @@
 import "../scss/styles.scss";
 
-const uploadTarget = document.querySelector(".upload-file");
-const uploadName = document.querySelector(".upload-name");
+const uploadTarget = document.getElementById("upload-file");
+const uploadName = document.getElementById("upload-name");
 
-const init = () => {
+function init() {
   uploadTarget.addEventListener("change", () => {
     let filename;
     if (window.FileReader) {
@@ -19,6 +19,6 @@ const init = () => {
     }
     uploadName.value = filename;
   });
-};
+}
 
 init();

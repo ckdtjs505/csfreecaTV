@@ -2,10 +2,10 @@ extends layout/main
 
 block content
     .form-container
-        form(action=`/users${routes.editProfile}`, method="post")
-            input(value="파일", disabled="disabled").upload-name
-            label(for="avatar").upload-label 업로드
-            input(type="file", name="file", id="avatar", accept="image/*").upload-file
-            input(type="text", name="name", placeholder="이름", required = true)
-            input(type="email", name="email", placeholder="이메일", required = true)
+        form(action=`/users${routes.editProfile}`, method="post", enctype="multipart/form-data")
+            input(value="파일", disabled="disabled", id="upload-name")
+            label(for="upload-file", id="upload-label") 업로드
+            input(type="file", name="avatarFile", id="upload-file", accept="image/*")
+            input(type="text", name="name", placeholder="이름", required= true, value= loggedUser.name )
+            input(type="email", name="email", placeholder="이메일", required= true, value= loggedUser.email )
             input(type="submit", value="변경하기")

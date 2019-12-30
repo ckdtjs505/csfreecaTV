@@ -1,9 +1,9 @@
 .form-container {
-  & .upload-name {
+  & #upload-name {
     position: absolute;
     width: 15rem;
   }
-  & .upload-label {
+  & #upload-label {
     margin-left: auto;
     width: 5rem;
     padding: 0.5em 0.75em;

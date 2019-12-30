@@ -106,5 +106,5 @@ dist
 # package 
 package-lock.json
 
-video
+uploads
 static

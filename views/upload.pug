@@ -3,8 +3,9 @@ extends layout/main
 block content
     .form-container
         form(action=`/videos${routes.upload}`, method="post", enctype="multipart/form-data")
-            label(for="avatar") Video file 
-            input(type="file", name="videoFile", accept="video/*", required = true)
+            input(value="파일", disabled="disabled", id="upload-name")
+            label(for="upload-file", id="upload-label") 업로드
+            input(type="file", name="videoFile", accept="video/*", id="upload-file", required = true)
             input(type="text", name="title", placeholder="제목", required = true)
             textarea(type="text", name="description", placeholder="설명", required = true)
             input(type="submit", value="업로드")
