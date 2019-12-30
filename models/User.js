@@ -5,7 +5,7 @@ const userSchema = new Schema({
   name: String,
   email: String,
   avatarUrl: String,
-  facebookId: Number,
+  kakaoId: Number,
   githubId: Number,
   googleId: Number
 });

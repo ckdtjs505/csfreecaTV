@@ -74,12 +74,12 @@ export const postEditProfile = async (req, res) => {
     body: { name, email },
     file
   } = req;
-  console.log(req.user.avatarUrl);
+
   try {
     await User.findByIdAndUpdate(req.user.id, {
       name,
       email,
-      avatarUrl: file ? file.path : req.user.avatarUrl
+      avatarUrl: file ? `/${file.path}` : req.user.avatarUrl
     });
     res.redirect(`/users${routes.me}`);
   } catch (error) {
@@ -153,11 +153,12 @@ export const kakaoLoginCallback = async (_, __, profile, cb) => {
   try {
     const user = await User.findOne({ email });
     if (user) {
-      user.avatarUrl = profileImg;
+      user.kakaoId = id;
       user.save();
       return cb(null, user);
     }
     const newUser = await User.create({
+      kakaoId: id,
       email,
       name: nickname,
       avatarUrl: profileImg

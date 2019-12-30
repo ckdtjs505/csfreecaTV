@@ -5,7 +5,7 @@ block content
     .userDetail_infomation
         .user_img
             a(href=`/users${routes.me}`)
-                img.avatarUrl(src=`/${user.avatarUrl}`)
+                img.avatarUrl(src=`${user.avatarUrl}`)
         .user_content
             h4.profile__username= user.name
             h4.profile__content= `안녕하세요 ${user.name}의 방송국입니다`
