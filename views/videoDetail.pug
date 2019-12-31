@@ -2,7 +2,7 @@ extends layout/main
 
 block content
     .video__player
-        video.video(src=`/${video.fileUrl}`, controls=true)
+        video.video(src=`/uploads/${video.fileUrl}`, controls=true)
     .video__info
         if (loggedUser)
             .video__edit

@@ -88,8 +88,28 @@ export const postEditProfile = async (req, res) => {
   }
 };
 
-export const changePassword = (req, res) =>
+export const getChangePassword = (req, res) => {
   res.render("changePassword", { pageTitle: "ChangePassword" });
+};
+
+export const postChangePassword = async (req, res) => {
+  const {
+    body: { curPassword, password, password2 }
+  } = req;
+  try {
+    if (password === password2) {
+      await req.user.changePassword(curPassword, password);
+      res.redirect(`/users${routes.me}`);
+    } else {
+      res.status(400);
+      res.redirect(`/users${routes.changePassword}`);
+    }
+  } catch (error) {
+    res.status(400);
+    console.log(error);
+    res.redirect(`/users${routes.changePassword}`);
+  }
+};
 
 export const githubLoginCallback = async (_, __, profile, cb) => {
   const {
