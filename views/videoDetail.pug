@@ -13,6 +13,8 @@ block content
             .video__view_title= video.views        
         .video__title= video.title
         .video__description= video.description
-        
+        .video__author
+            | Uploaded by 
+            a(href=routes.userDetail(video.creator._id))= video.creator.name
         h5.video__comment= video.comment
         
