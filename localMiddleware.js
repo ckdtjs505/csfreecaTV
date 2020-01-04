@@ -8,7 +8,7 @@ export const localMiddleware = (req, res, next) => {
   res.locals.title = "csTube";
   res.locals.routes = routes;
   res.locals.loggedUser = req.user || null;
-  console.log(res.locals.loggedUser);
+  console.log(req.user);
   next();
 };
 
