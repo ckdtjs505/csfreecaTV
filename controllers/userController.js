@@ -52,17 +52,9 @@ export const userDetail = async (req, res) => {
   const {
     params: { id }
   } = req;
-
   try {
-    const user = await User.findOne({ _id: id });
-    if (user) {
-      try {
-        const videos = await Video.find({}).sort({ _id: 1 });
-        res.render("userDetail", { pageTitle: "UserDetail", user, videos });
-      } catch (error) {
-        res.render("userDetail", { pageTitle: "UserDetail", user, videos: [] });
-      }
-    }
+    const user = await User.findById(id).populate("videos");
+    res.render("userDetail", { pageTitle: "UserDetail", user });
   } catch (error) {
     res.redirect(routes.home);
   }
