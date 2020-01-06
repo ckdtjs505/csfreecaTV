@@ -42,8 +42,8 @@ export const logout = (req, res) => {
 };
 
 export const getMe = async (req, res) => {
-  const videos = await Video.find({}).sort({ _id: -1 });
-  res.render("userDetail", { pageTitle: "UserDetail", user: req.user, videos });
+  const user = await User.findById({ _id: req.user.id }).populate("videos");
+  res.render("userDetail", { pageTitle: "UserDetail", user });
 };
 
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
