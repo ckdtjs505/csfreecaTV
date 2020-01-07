@@ -1,8 +1,12 @@
 extends layout/main
+include mixins/videoPlayer
 
 block content
-    .video__player
-        video.video(src=`/${video.fileUrl}`, controls=true)
+    //- .video__player
+    //-     video.video(src=`/${video.fileUrl}`, controls=true)
+    +videoPlayer({
+        src:video.fileUrl
+    })
     .video__info
         if loggedUser && (loggedUser.id === video.creator.id)
             .video__edit
