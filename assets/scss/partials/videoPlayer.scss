@@ -29,6 +29,16 @@
       span:first-child {
         margin-right: 10px;
       }
+      .videoPlayer__volume {
+        position: absolute;
+        padding: 0px;
+        opacity: 1;
+        transform: rotate(-90deg);
+        left: -25px;
+        bottom: 70px;
+        width: 80px;
+        z-index: 12;
+      }
     }
     .videoPlayer__column:nth-child(2) {
       justify-self: center;
