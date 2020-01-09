@@ -74,7 +74,7 @@ const formatDate = seconds => {
 };
 
 function getCurrentTime() {
-  currentTime.innerHTML = formatDate(videoPlayer.currentTime);
+  currentTime.innerHTML = formatDate(Math.floor(videoPlayer.currentTime));
 }
 
 function setTotalTime() {
