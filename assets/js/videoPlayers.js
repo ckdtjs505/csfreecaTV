@@ -27,11 +27,27 @@ function handleVolumeClick() {
 function exitFullScreen() {
   fullScreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
   fullScreenBtn.addEventListener("click", goFullScreen);
-  document.exitFullscreen();
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitexitFullscreen) {
+    document.webkitexitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  }
 }
 
 function goFullScreen() {
-  videoContainer.requestFullscreen(); // moz, ms
+  if (videoContainer.requestFullscreen) {
+    videoContainer.requestFullscreen();
+  } else if (videoContainer.webkitrequestFullscreen) {
+    videoContainer.webkitrequestFullscreen();
+  } else if (videoContainer.msrequestFullscreen) {
+    videoContainer.msrequestFullscreen();
+  } else if (videoContainer.mozRequestFullScreen) {
+    videoContainer.mozRequestFullScreen();
+  }
   fullScreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
   fullScreenBtn.removeEventListener("click", goFullScreen);
   fullScreenBtn.addEventListener("click", exitFullScreen);
