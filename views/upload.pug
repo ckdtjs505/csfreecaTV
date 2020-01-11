@@ -2,6 +2,9 @@ extends layout/main
 
 block content
     .form-container
+        .record-container 
+            video#jsVideoPreview
+            button#jsRecordBtn 녹화 시작
         form(action=`/videos${routes.upload}`, method="post", enctype="multipart/form-data")
             input(value="파일", disabled="disabled", id="upload-name")
             label(for="upload-file", id="upload-label") 업로드
