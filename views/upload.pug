@@ -2,7 +2,7 @@ extends layout/main
 
 block content
     .form-container
-        .record-container 
+        .record-container#jsRecordContainer
             video#jsVideoPreview
             button#jsRecordBtn 녹화 시작
         form(action=`/videos${routes.upload}`, method="post", enctype="multipart/form-data")
