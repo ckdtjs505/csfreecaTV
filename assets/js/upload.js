@@ -22,16 +22,29 @@ function handleUploadName() {
 }
 
 let streamObject;
+let videoRecorder;
 
 const handlevideoData = event => {
-  console.log(event);
+  const { data: videoFile } = event;
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(videoFile);
+  link.download = "recorded.webm";
+  document.body.appendChild(link);
+  link.click();
+};
+
+const stopRecording = () => {
+  videoRecorder.stop();
+  recordBtn.removeEventListener("click", stopRecording);
+  recordBtn.addEventListener("click", getVideo);
+  recordBtn.innerHTML = "녹화 시작";
 };
 
 const startRecording = () => {
-  const videoRecorder = new MediaRecorder(streamObject);
-  videoRecorder.addEventListener("dataavailable", handlevideoData);
+  videoRecorder = new MediaRecorder(streamObject);
   videoRecorder.start();
-  console.log(videoRecorder);
+  videoRecorder.addEventListener("dataavailable", handlevideoData);
+  recordBtn.addEventListener("click", stopRecording);
 };
 
 const getVideo = async () => {
