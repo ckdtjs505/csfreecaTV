@@ -1,5 +1,6 @@
 const recordContainer = document.getElementById("jsRecordContainer");
 const recordBtn = document.getElementById("jsRecordBtn");
+
 const videoPreview = document.getElementById("jsVideoPreview");
 const uploadTarget = document.getElementById("upload-file");
 const uploadName = document.getElementById("upload-name");
@@ -20,7 +21,20 @@ function handleUploadName() {
   uploadName.value = filename;
 }
 
-const startRecording = async () => {
+let streamObject;
+
+const handlevideoData = event => {
+  console.log(event);
+};
+
+const startRecording = () => {
+  const videoRecorder = new MediaRecorder(streamObject);
+  videoRecorder.addEventListener("dataavailable", handlevideoData);
+  videoRecorder.start();
+  console.log(videoRecorder);
+};
+
+const getVideo = async () => {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: true,
@@ -29,15 +43,20 @@ const startRecording = async () => {
     videoPreview.srcObject = stream;
     videoPreview.muted = true;
     videoPreview.play();
+    recordBtn.innerHTML = "녹화 중지";
+    streamObject = stream;
+    startRecording();
   } catch (error) {
     recordBtn.innerHTML = "녹화 에러";
-    recordBtn.removeEventListener("click", startRecording);
+    recordBtn.removeEventListener("click", getVideo);
+  } finally {
+    recordBtn.removeEventListener("click", getVideo);
   }
 };
 
 function init() {
   uploadTarget.addEventListener("change", handleUploadName);
-  recordBtn.addEventListener("click", startRecording);
+  recordBtn.addEventListener("click", getVideo);
 }
 
 if (recordContainer) {
