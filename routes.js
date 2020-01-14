@@ -34,6 +34,11 @@ const GoogleCallback = "/auth/google/callback";
 const Kakao = "/auth/kakao";
 const KakaoCallback = "/oauth/";
 
+// API
+
+const API = "/api";
+const REGISTER_VIEW = "/:id/view";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -81,7 +86,9 @@ const routes = {
   google: Google,
   googleCallback: GoogleCallback,
   kakao: Kakao,
-  kakaoCallback: KakaoCallback
+  kakaoCallback: KakaoCallback,
+  api: API,
+  registerView: REGISTER_VIEW
 };
 
 export default routes;
