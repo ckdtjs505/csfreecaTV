@@ -12,13 +12,11 @@ block content
             .video__edit
                 a(href=routes.editVideo(video.id)).edit 수정
                 a(href=routes.deleteVideo(video.id)).delete 삭제
-        .video__view
+        .video__header
+            .video__author
+                a(href=routes.userDetail(video.creator._id))= video.creator.name
             img(src="/img/play.png", alt="", srcset="")  
             .video__view_title= video.views        
         .video__title= video.title
         .video__description= video.description
-        .video__author
-            | Uploaded by 
-            a(href=routes.userDetail(video.creator._id))= video.creator.name
-        h5.video__comment= video.comment
-        
+       

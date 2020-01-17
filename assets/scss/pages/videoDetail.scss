@@ -5,13 +5,18 @@
   }
 }
 .video__info {
-  & .video__view {
+  & .video__header {
     padding-top: 1rem;
     padding-left: 3rem;
     display: flex;
     border-top: 1px solid #f0f0f0;
     & img {
       margin-right: 0.5rem;
+    }
+
+    .video__author {
+      color: $lineColor;
+      padding: 0 0.5rem 0 0;
     }
   }
   & .video__edit {
@@ -35,7 +40,7 @@
     letter-spacing: -1px;
     font-weight: bold;
   }
-  & .video__description {
+  .video__description {
     padding-top: 1rem;
     padding-left: 3rem;
     padding-bottom: 1rem;
