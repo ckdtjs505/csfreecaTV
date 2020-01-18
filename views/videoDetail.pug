@@ -13,10 +13,15 @@ block content
                 a(href=routes.editVideo(video.id)).edit 수정
                 a(href=routes.deleteVideo(video.id)).delete 삭제
         .video__header
-            .video__author
-                a(href=routes.userDetail(video.creator._id))= video.creator.name
-            img(src="/img/play.png", alt="", srcset="")  
-            .video__view_title= video.views        
-        .video__title= video.title
+            .video__header__side
+                .video__author-avatar 
+                    img(src=video.creator.avatarUrl, alt="")  
+            .video__header__body 
+                .video__header__body-content
+                    .video__author
+                        a(href=routes.userDetail(video.creator._id))= video.creator.name
+                    .video__view 
+                        img(src="/img/play.png", alt="")  
+                        .video__view_title= video.views        
+                .video__title= video.title
         .video__description= video.description
-       
