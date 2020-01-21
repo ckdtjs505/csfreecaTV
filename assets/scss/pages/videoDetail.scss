@@ -37,6 +37,7 @@
           }
         }
       }
+
       .video__title {
         position: relative;
         font-size: 18px;
@@ -46,6 +47,30 @@
       }
     }
   }
+  .video__comment {
+    padding-top: 1rem;
+    padding-left: 5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    border-top: 1px solid #f0f0f0;
+    .video__comment__side {
+      display: flex;
+      width: 100%;
+      height: 3.5rem;
+      img {
+        border-radius: 5rem;
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+      form {
+        width: 90%;
+        margin-left: 1rem;
+        padding: 14px 20px 16px;
+        border: 1px solid #d9dddf;
+      }
+    }
+  }
+
   & .video__edit {
     height: 1rem;
     text-align: right;

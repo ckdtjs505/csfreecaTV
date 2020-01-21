@@ -26,15 +26,18 @@ block content
                 .video__title= video.title
         .video__description= video.description
         .video__comment
-            .video__comment-input-container
+            .video__comment__side
                 if loggedUser
-                    .video__comment-user-avator
+                    .video__comment-avator
                         img(src=`${loggedUser.avatarUrl}`, alt="")
                     form.add_comment#jsAddComment
                         input(type="text", name="", placeholder ="내용을 입력해 주세요") 
                 else
                     button.login_button 로그인
-            ul.video__comment-list
-                each comment in video.comment
-                    .list= comment.text 
+        ul.video__comment-list
+            each comment in video.comment
+                .video__comment__side
+                    .video__comment-avator
+                        img(src=`${comment.avatarUrl}`, alt="")
+                    .test= comment
         
