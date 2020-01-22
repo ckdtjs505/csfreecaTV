@@ -34,10 +34,12 @@ block content
                         input(type="text", name="", placeholder ="내용을 입력해 주세요") 
                 else
                     button.login_button 로그인
-        ul.video__comment-list
+        ul.video__comment
             each comment in video.comment
                 .video__comment__side
                     .video__comment-avator
-                        img(src=`${comment.avatarUrl}`, alt="")
-                    .test= comment
-        
+                        img(src=`${comment.creator.avatarUrl}`, alt="")
+                    .video__user-name= comment.creator.name
+                    .video__date= `${comment.createdAt.toLocaleString('ko')}`
+                    .video__comment-text= comment.text
+                    
