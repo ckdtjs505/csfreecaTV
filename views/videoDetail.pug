@@ -2,8 +2,6 @@ extends layout/main
 include mixins/videoPlayer
 
 block content
-    //- .video__player
-    //-     video.video(src=`/${video.fileUrl}`, controls=true)
     +videoPlayer({
         src:video.fileUrl
     })

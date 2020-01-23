@@ -19,6 +19,7 @@
       }
     }
     .video__header__body {
+      z-index: -1;
       margin-left: 1rem;
       width: 100%;
       display: flex;
@@ -85,6 +86,7 @@
   }
 
   & .video__edit {
+    z-index: 1;
     height: 1rem;
     text-align: right;
     & a {
@@ -92,6 +94,7 @@
       font-size: 12px;
       line-height: 5rem;
       color: red;
+      cursor: pointer;
     }
 
     & .edit {
