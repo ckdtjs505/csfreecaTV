@@ -1,7 +1,7 @@
 extends layout/main
 
 block content
-    .form-container
+    .form-container#jsEditProfileContainer
         form(action=`/users${routes.editProfile}`, method="post", enctype="multipart/form-data")
             input(value="파일", disabled="disabled", id="upload-name")
             label(for="upload-file", id="upload-label") 업로드

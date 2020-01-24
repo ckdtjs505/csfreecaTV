@@ -1,5 +1,6 @@
 const recordContainer = document.getElementById("jsRecordContainer");
 const recordBtn = document.getElementById("jsRecordBtn");
+const editProfileContainer = document.getElementById("jsEditProfileContainer");
 
 const videoPreview = document.getElementById("jsVideoPreview");
 const uploadTarget = document.getElementById("upload-file");
@@ -74,4 +75,8 @@ function init() {
 
 if (recordContainer) {
   init();
+}
+
+if (editProfileContainer) {
+  uploadTarget.addEventListener("change", handleUploadName);
 }
