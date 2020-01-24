@@ -16,8 +16,13 @@ const multerVideo = multer({
   })
 });
 
-const multerAvatar = multer({ dest: "uploads/image/" });
-
+const multerAvatar = multer({
+  storage: multerS3({
+    s3,
+    acl: "public-read",
+    bucket: "csfreeca/avatar"
+  })
+});
 export const localMiddleware = (req, res, next) => {
   res.locals.title = "csTube";
   res.locals.routes = routes;
