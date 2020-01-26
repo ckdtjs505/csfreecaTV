@@ -124,6 +124,15 @@ export const registerView = async (req, res) => {
   }
 };
 
+export const postDeleteComment = async (req, res) => {
+  const {
+    params: { id },
+    body: { comment },
+    user
+  } = req;
+  console.log(id, comment, user);
+};
+
 export const postAddComment = async (req, res) => {
   const {
     params: { id },
