@@ -1,4 +1,5 @@
 /* eslint-disable import/first */
+import "@babel/polyfill";
 import dotenv from "dotenv";
 
 dotenv.config();
