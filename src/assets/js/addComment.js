@@ -11,16 +11,15 @@ const removeCommentContainer = () => {
 
 const sendComment = async comment => {
   const videoId = window.location.href.split("/videos/")[1];
-  const response = axios({
+  axios({
     url: `/api/${videoId}/comment`,
     method: "POST",
     data: {
       comment
     }
+  }).then(res => {
+    console.log(res);
   });
-  if ((await response).status === 200) {
-    window.location.reload();
-  }
 };
 
 async function deleteComment(commentId) {
