@@ -32,7 +32,7 @@ block content
                         input(type="text", name="", placeholder ="내용을 입력해 주세요") 
                 else
                     button.login_button 로그인
-        ul.video__comment
+        ul.video__comment#jsCommentList
             each comment in video.comment.reverse()
                 .video__comment__side
                     .video__comment-avator

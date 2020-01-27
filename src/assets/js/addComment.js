@@ -2,7 +2,16 @@ import axios from "axios";
 
 const addCommentForm = document.getElementById("jsAddComment");
 const deleteCommentButton = document.querySelectorAll(".jsDeleteButton");
+const commentContainer = document.getElementById("jsCommentList");
+
 let commentButton;
+
+const createCommentContainer = comment => {
+  // later : creator data input
+  const commentText = document.createElement("text");
+  commentText.innerHTML = comment;
+  commentContainer.prepend(commentText);
+};
 
 const removeCommentContainer = () => {
   const commentAll = commentButton.parentNode;
@@ -17,29 +26,25 @@ const sendComment = async comment => {
     data: {
       comment
     }
-  }).then(res => {
-    console.log(res);
   });
 };
 
-async function deleteComment(commentId) {
-  const response = axios({
+const deleteComment = async commentId => {
+  axios({
     url: `/api/${commentId}/deleteComment`,
     method: "POST",
     data: {
       commentId
     }
   });
-  if ((await response).status === 200) {
-    removeCommentContainer();
-  }
-}
+};
 
 function handleClick(event) {
   event.preventDefault();
   commentButton = this;
   const commentId = commentButton.name;
   deleteComment(commentId);
+  removeCommentContainer();
 }
 
 const handleSubmit = event => {
@@ -48,6 +53,7 @@ const handleSubmit = event => {
   const comment = commentInput.value;
   sendComment(comment);
   commentInput.value = "";
+  createCommentContainer(comment);
 };
 
 function init() {
