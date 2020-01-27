@@ -1,7 +1,13 @@
 import axios from "axios";
 
 const addCommentForm = document.getElementById("jsAddComment");
-const deleteCommentButton = document.querySelector("jsDeleteButton");
+const deleteCommentButton = document.querySelectorAll(".jsDeleteButton");
+let commentButton;
+
+const removeCommentContainer = () => {
+  const commentAll = commentButton.parentNode;
+  commentAll.remove();
+};
 
 const sendComment = async comment => {
   const videoId = window.location.href.split("/videos/")[1];
@@ -17,14 +23,25 @@ const sendComment = async comment => {
   }
 };
 
-const deleteComment = () => {
-  const videoId = window.location.href.split("/videos/")[1];
+async function deleteComment(commentId) {
   const response = axios({
-    url: `/api/${videoId}/deleteComment`,
-    method: "POST"
+    url: `/api/${commentId}/deleteComment`,
+    method: "POST",
+    data: {
+      commentId
+    }
   });
-  console.log(response);
-};
+  if ((await response).status === 200) {
+    removeCommentContainer();
+  }
+}
+
+function handleClick(event) {
+  event.preventDefault();
+  commentButton = this;
+  const commentId = commentButton.name;
+  deleteComment(commentId);
+}
 
 const handleSubmit = event => {
   event.preventDefault();
@@ -36,7 +53,9 @@ const handleSubmit = event => {
 
 function init() {
   addCommentForm.addEventListener("submit", handleSubmit);
-  deleteCommentButton.addEventListener("click", deleteComment);
+  deleteCommentButton.forEach(button => {
+    button.addEventListener("click", handleClick);
+  });
 }
 
 if (addCommentForm) {

@@ -40,5 +40,5 @@ block content
                     .video__user-name= comment.creator.name
                     .video__date= `${comment.createdAt.toLocaleString('ko')}`
                     .video__comment-text= comment.text
-                    button.jsDeleteButton 지우기
-                    
+                    if loggedUser && (loggedUser.id === video.creator.id)
+                        button(name=comment.id, type="button").jsDeleteButton 지우기

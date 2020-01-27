@@ -49,7 +49,7 @@ export const postUpload = async (req, res) => {
 export const videoDetail = async (req, res) => {
   const { params } = req;
   try {
-    const video = await await Video.findById(params.id)
+    const video = await Video.findById(params.id)
       .populate("creator")
       .populate({
         path: "comment",
@@ -126,11 +126,16 @@ export const registerView = async (req, res) => {
 
 export const postDeleteComment = async (req, res) => {
   const {
-    params: { id },
-    body: { comment },
-    user
+    body: { commentId }
   } = req;
-  console.log(id, comment, user);
+  try {
+    await Comment.deleteOne({ _id: commentId });
+    res.status(200);
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
 };
 
 export const postAddComment = async (req, res) => {
