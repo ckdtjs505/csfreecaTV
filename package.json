@@ -43,7 +43,7 @@
     "build:server": "babel src --out-dir build",
     "copyAll": "xcopy .\\src\\static .\\build\\static\\ /s /y && xcopy .\\src\\views .\\build\\views\\ /s /y && xcopy .\\src\\img .\\build\\img\\ /s /y",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
-    "prebuild": "del build",
+    "prebuild": "rd /s /q build",
     "start": "npm run build && node build/init.js"
   },
   "devDependencies": {
