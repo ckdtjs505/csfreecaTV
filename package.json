@@ -6,6 +6,7 @@
   "author": "ckdtjs505",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.8.3",
     "@babel/core": "^7.7.4",
     "@babel/node": "^7.7.4",
     "@babel/polyfill": "^7.7.0",
@@ -47,7 +48,6 @@
     "prestart": "npm run build"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
     "babel-loader": "^8.0.6",
     "cross-env": "^6.0.3",
     "css-loader": "^3.4.0",
