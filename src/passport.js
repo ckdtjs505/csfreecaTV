@@ -18,7 +18,7 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: `https://intense-sands-29573.herokuapp.com/${routers.githubCallback}`
+      callbackURL: `https://intense-sands-29573.herokuapp.com${routers.githubCallback}`
     },
     githubLoginCallback
   )
@@ -29,7 +29,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: `https://intense-sands-29573.herokuapp.com/${routers.googleCallback}`
+      callbackURL: `https://intense-sands-29573.herokuapp.com${routers.googleCallback}`
     },
     googleLoginCallback
   )
@@ -40,7 +40,7 @@ passport.use(
     {
       clientID: process.env.KAKAO_CLIENT_ID,
       clientSecret: process.env.KAKAO_CLIENT_SECRET, // clientSecret을 사용하지 않는다면 넘기지 말거나 빈 스트링을 넘길 것
-      callbackURL: `https://intense-sands-29573.herokuapp.com/`
+      callbackURL: `https://intense-sands-29573.herokuapp.com/oauth`
     },
     kakaoLoginCallback
   )
