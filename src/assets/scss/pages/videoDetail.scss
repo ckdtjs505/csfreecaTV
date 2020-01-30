@@ -60,6 +60,21 @@
       margin-top: 1rem;
       width: 100%;
       height: 3.5rem;
+      .video__comment-avator {
+        display: flex;
+        width: 3.5rem;
+        height: 3.5rem;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-between;
+        border-radius: 5rem;
+        border: #f0f0f0 0.8px solid;
+        img {
+          margin: auto 0px;
+          width: 100%;
+          border-radius: 5rem;
+        }
+      }
 
       .video__user-name {
         font-size: large;
@@ -71,11 +86,7 @@
         margin-top: 0.5rem;
         margin-right: 1rem;
       }
-      img {
-        border-radius: 5rem;
-        width: 3.5rem;
-        height: 3.5rem;
-      }
+
       form {
         width: 90%;
         margin-left: 1rem;
