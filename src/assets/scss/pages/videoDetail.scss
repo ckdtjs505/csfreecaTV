@@ -22,6 +22,7 @@
       z-index: -1;
       margin-left: 1rem;
       width: 100%;
+      height: 3rem;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -40,9 +41,8 @@
       }
 
       .video__title {
-        position: relative;
+        // position: relative;
         font-size: 18px;
-        margin-top: -10px;
         letter-spacing: -1px;
         font-weight: bold;
       }
