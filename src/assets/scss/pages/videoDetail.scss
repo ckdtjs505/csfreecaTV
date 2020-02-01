@@ -12,10 +12,17 @@
     display: flex;
     border-top: 1px solid #f0f0f0;
     .video__header__side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       width: 3.5rem;
+      border: solid;
+      border-radius: 5rem;
+      border: #f0f0f0 0.8px solid;
       img {
-        border-radius: 5rem;
+        margin: auto 0px;
         width: 100%;
+        border-radius: 5rem;
       }
     }
     .video__header__body {
