@@ -37,8 +37,10 @@ block content
                 .video__comment__side
                     .video__comment-avator
                         img(src=`${comment.creator.avatarUrl}`, alt="")
-                    .video__user-name= comment.creator.name
-                    .video__date= `${comment.createdAt.toLocaleString('ko')}`
-                    .video__comment-text= comment.text
-                    if loggedUser && (loggedUser.id === comment.creator.id)
-                        button(name=comment.id, type="button").jsDeleteButton 지우기
+                    .video__content
+                        .text
+                            span.video__user-name= comment.creator.name 
+                            sapn.video__date= `  ${comment.createdAt.toLocaleString('ko')}`
+                            if loggedUser && (loggedUser.id === comment.creator.id)
+                                button(name=comment.id, type="button").jsDeleteButton 지우기
+                        .video__comment-text= comment.text

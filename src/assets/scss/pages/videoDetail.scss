@@ -82,16 +82,23 @@
           border-radius: 5rem;
         }
       }
-
-      .video__user-name {
-        font-size: large;
-        margin-top: 0.5rem;
-        margin-right: 1rem;
-        margin-left: 1rem;
-      }
-      .video__date {
-        margin-top: 0.5rem;
-        margin-right: 1rem;
+      .video__content {
+        margin-left: 1.5rem;
+        .text {
+          margin-bottom: 8px;
+          .video__user-name {
+            display: inline-block;
+            text-align: center;
+            font-weight: bold;
+          }
+          button {
+            position: absolute;
+            left: 80%;
+            color: red;
+            background-color: white;
+            font-weight: bold;
+          }
+        }
       }
 
       form {
