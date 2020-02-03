@@ -15,8 +15,8 @@
       border-top: 1px solid #d8d8d8;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
+      max-height: 12rem;
       width: 100%;
-      max-height: 149px;
     }
     & .videoBlock__title {
       margin: 0.5rem 0 0.5rem 0.5rem;
@@ -30,5 +30,16 @@
         margin-right: 0.5rem;
       }
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .video {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 }
