@@ -9,7 +9,10 @@
   border-radius: 10px;
   & a {
     width: 100%;
-
+    & .video__content {
+      display: inline-flex;
+      flex-direction: column;
+    }
     & video {
       background-color: #d8d8d8;
       border-top: 1px solid #d8d8d8;
@@ -18,13 +21,22 @@
       max-height: 12rem;
       width: 100%;
     }
+    & .avatarImg {
+      display: inline-block;
+      margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 3rem;
+      vertical-align: top;
+    }
     & .videoBlock__title {
-      margin: 0.5rem 0 0.5rem 0.5rem;
+      display: inline-block;
+      margin: 0.5rem 0 0.2rem 0.5rem;
       font-size: 15px;
       font-weight: 600;
     }
     & .videoBlock__views {
-      display: flex;
+      display: inline-flex;
       margin: 0.5rem 0 0.5rem 0.5rem;
       & img {
         margin-right: 0.5rem;
