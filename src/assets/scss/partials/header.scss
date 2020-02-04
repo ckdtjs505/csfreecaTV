@@ -54,3 +54,26 @@
     }
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .header {
+    width: 100%;
+    position: fixed !important;
+    .header__column {
+      margin-right: 5px;
+      form {
+        margin-right: 0;
+        width: 90px;
+        input {
+          width: 50px;
+        }
+      }
+      & ul {
+        width: 70px;
+      }
+      .menu {
+        display: none;
+      }
+    }
+  }
+}
