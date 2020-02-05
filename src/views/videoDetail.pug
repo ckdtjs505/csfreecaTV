@@ -24,14 +24,18 @@ block content
                 .video__title= video.title
         .video__description= video.description
         .video__comment
+            .text= `댓글${video.comment.length}개` 
             .video__comment__side
                 if loggedUser
                     .video__comment-avator
                         img(src=`${loggedUser.avatarUrl}`, alt="")
                     form.add_comment#jsAddComment
-                        input(type="text", name="", placeholder ="내용을 입력해 주세요") 
-                else
-                    button.login_button 로그인
+                        input(type="text", name="", placeholder ="내용을 입력해 주세요")
+                else 
+                    .video__comment-avator
+                        img(src=`/img/rogo.png`, alt="")
+                    form.add_comment#jsAddComment
+                        input(type="text", class="add_comment", placeholder ="로그인 후 입력해주세요", disabled)
         ul.video__comment#jsCommentList
             each comment in video.comment.reverse()
                 .video__comment__side

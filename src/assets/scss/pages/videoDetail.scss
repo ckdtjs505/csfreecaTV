@@ -135,3 +135,11 @@
     border-bottom: 1px solid #f0f0f0;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .video__info {
+    & .video__comment {
+      padding-left: 2rem;
+    }
+  }
+}
