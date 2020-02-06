@@ -47,3 +47,12 @@
   grid-gap: 1rem;
   margin-top: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+  .userDetail_infomation {
+    margin-top: 5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1.5rem;
+  }
+}
