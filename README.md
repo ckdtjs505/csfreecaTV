@@ -1,10 +1,3 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <br />
 <p align="center">
   <a href="https://github.com/ckdtjs505/csfreecaTV">
@@ -27,22 +20,16 @@
   </p>
 </p>
 
-
-# [csfreecaTV](https://intense-sands-29573.herokuapp.com/)
-
-
-
 ## Table of Contents
 
-- [csfreecaTV](#csfreecatv)
-  - [Table of Contents](#table-of-contents)
-  - [Features](#features)
-  - [About The Project](#about-the-project)
-    - [Built With](#built-with)
-    - [Pages](#pages)
-  - [Getting Started](#getting-started)
-  - [Contect](#contect)
-  - [Acknowledgements](#acknowledgements)
+- [Table of Contents](#table-of-contents)
+- [Features](#features)
+- [About The Project](#about-the-project)
+  - [Built With](#built-with)
+  - [Pages](#pages)
+- [Getting Started](#getting-started)
+- [Contect](#contect)
+- [Acknowledgements](#acknowledgements)
 
 ## Features
  1. video Save, load, Service **with aws S3**
