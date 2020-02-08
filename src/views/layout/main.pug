@@ -6,6 +6,16 @@ html
         link(rel="stylesheet", href="/static/styles.css")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
     body
+        if messages.error 
+            span=messages.error
+        else if messages.info
+            span=messages.info
+        else if messages.success
+            span=messages.success
+        else if messages.failure
+            span=messages.failure
+        else if messages.logout
+            span=messages.logout
         include ../partials/header
         main 
             block content

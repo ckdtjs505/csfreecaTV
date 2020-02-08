@@ -1,7 +1,6 @@
 import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
-import Video from "../models/Video";
 
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 
@@ -12,6 +11,7 @@ export const postJoin = async (req, res, next) => {
   const avatarUrl = "/img/rogo.png";
   if (password !== password2) {
     res.status(400);
+    req.flash("error", "비밀번호가 일치하지 않습니다.");
     res.render("join", { pageTitle: "Join" });
   } else {
     try {
@@ -28,16 +28,20 @@ export const postJoin = async (req, res, next) => {
   }
 };
 
-export const getLogin = (req, res) =>
+export const getLogin = (req, res) => {
   res.render("login", { pageTitle: "Login" });
+};
 
 export const postLogin = passport.authenticate("local", {
   successRedirect: routes.home,
-  failureRedirect: routes.login
+  failureRedirect: routes.login,
+  successFlash: "환영합니다",
+  failureFlash: "로그인 실패"
 });
 
 export const logout = (req, res) => {
   req.logout();
+  req.flash("logout", "로그아웃 되었습니다.");
   res.redirect(routes.home);
 };
 
@@ -95,6 +99,7 @@ export const postChangePassword = async (req, res) => {
       await req.user.changePassword(curPassword, password);
       res.redirect(`/users${routes.me}`);
     } else {
+      req.flash("error", "비밀번호가 일치하지 않습니다");
       res.status(400);
       res.redirect(`/users${routes.changePassword}`);
     }
