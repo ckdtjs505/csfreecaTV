@@ -45,6 +45,7 @@ export const postUpload = async (req, res) => {
   });
   req.user.videos.push(newVideo.id);
   req.user.save();
+  req.flash("success", "업로드 되었습니다");
   res.redirect(routes.videoDetail(newVideo.id));
 };
 

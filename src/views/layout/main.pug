@@ -1,3 +1,5 @@
+include ../mixins/message
+
 doctype html
 html
     head
@@ -7,15 +9,30 @@ html
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
     body
         if messages.error 
-            span=messages.error
+            +message({
+                type: "error",
+                text: messages.error
+            })
         else if messages.info
-            span=messages.info
+            +message({
+                type: "info",
+                text: messages.info
+            })
         else if messages.success
-            span=messages.success
+            +message({
+                type: "success",
+                text: messages.success
+            })
         else if messages.failure
-            span=messages.failure
+            +message({
+                type: "failure",
+                text: messages.failure
+            })
         else if messages.logout
-            span=messages.logout
+            +message({
+                type: "logout",
+                text: messages.logout
+            })
         include ../partials/header
         main 
             block content
