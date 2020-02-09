@@ -25,7 +25,13 @@ grobalRouter.post(routes.login, onlyPublic, postLogin);
 grobalRouter.get(routes.logout, logout);
 
 // github
-grobalRouter.get(routes.github, passport.authenticate("github"));
+grobalRouter.get(
+  routes.github,
+  passport.authenticate("github", {
+    successFlash: "환영합니다",
+    failureFlash: "로그인 실패"
+  })
+);
 
 grobalRouter.get(
   routes.githubCallback,
@@ -36,7 +42,11 @@ grobalRouter.get(
 // Google
 grobalRouter.get(
   routes.google,
-  passport.authenticate("google", { scope: ["profile", "email"] })
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+    successFlash: "환영합니다",
+    failureFlash: "로그인 실패"
+  })
 );
 
 grobalRouter.get(
@@ -48,12 +58,18 @@ grobalRouter.get(
 // Kakao
 grobalRouter.get(
   routes.kakao,
-  passport.authenticate("kakao", { failureRedirect: routes.login })
+  passport.authenticate("kakao", {
+    failureRedirect: routes.login,
+    successFlash: "환영합니다",
+    failureFlash: "로그인 실패"
+  })
 );
 
 grobalRouter.get(
   routes.kakaoCallback,
-  passport.authenticate("kakao", { failureRedirect: routes.login }),
+  passport.authenticate("kakao", {
+    failureRedirect: routes.login
+  }),
   postsnsLogIn
 );
 
