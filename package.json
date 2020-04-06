@@ -46,8 +46,8 @@
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/init.js --delay 2",
-    "dev:assets": "cd src && WEBPACK_ENV=development webpack -w",
-    "build:assets": "cd src && WEBPACK_ENV=production webpack",
+    "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
+    "build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
     "build:server": "babel src --out-dir build",
     "copyAll": "cp -R src/static build && cp -R src/views build && cp -R src/img build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
