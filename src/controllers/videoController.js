@@ -4,8 +4,8 @@ import Comment from "../models/Comment";
 import { getAfreecaBroadList } from "../models/apiLiveVideos";
 
 export const home = async (req, res) => {
-  const broads = await getAfreecaBroadList();
   try {
+    const broads = await getAfreecaBroadList();
     const videos = await Video.find({})
       .sort({ _id: -1 })
       .populate("creator");
