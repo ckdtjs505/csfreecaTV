@@ -14,6 +14,9 @@ export async function getAfreecaBroadList() {
         return JsonData.broad;
       }
       return data.broad;
+    })
+    .catch(error => {
+      console.log(error);
     });
 }
 
