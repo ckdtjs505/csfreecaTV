@@ -11,13 +11,9 @@ export async function getAfreecaBroadList() {
       if (typeof data === "string") {
         const preJsonData = data.replace(/[();]/g, "");
         JsonData = JSON.parse(preJsonData);
-      } else {
-        JsonData = JSON.parse(data);
+        return JsonData.broad;
       }
-      return JsonData.broad;
-    })
-    .catch(error => {
-      console.log(error);
+      return data.broad;
     });
 }
 
