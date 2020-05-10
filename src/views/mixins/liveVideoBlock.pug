@@ -1,0 +1,10 @@
+mixin liveVideoBlock(video = {})
+    .liveVideoBlock
+        a(href=routes.videoDetail(video.id))
+            img.videoBlock__thumnbnail(src=`${video.videofile}`)
+            img(src=`//profile.img.afreecatv.com/LOGO/${video.creator.substr(0,2)}/${video.creator}/${video.creator}.jpg`).avatarImg    
+            .video__content
+                h4.videoBlock__title= video.title
+                .videoBlock__views
+                    img(src="/img/play.png", alt="", srcset="")
+                    h6.videoBlock__views_title= video.views 

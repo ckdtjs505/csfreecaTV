@@ -1,5 +1,6 @@
 extends layout/main
 include mixins/videoBlock
+include mixins/liveVideoBlock
 
 block content
     .video 
@@ -10,4 +11,12 @@ block content
                 views: video.views,
                 videofile: video.fileUrl,
                 creator: video.creator
+            })
+        each broad in broads    
+            +liveVideoBlock({
+                id : broad.broad_no,
+                title: broad.broad_title,
+                views: broad.total_view_cnt,
+                videofile: broad.broad_thumb,
+                creator: broad.user_id
             })
