@@ -6,7 +6,6 @@ export async function getAfreecaBroadList() {
   return axios
     .get(url)
     .then(res => {
-      console.log("res", res);
       return res.data;
     })
     .then(data => {
