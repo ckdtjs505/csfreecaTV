@@ -5,8 +5,12 @@ const url = `https://openapi.afreecatv.com/broad/list?client_id=${process.env.AF
 export async function getAfreecaBroadList() {
   return axios
     .get(url)
-    .then(res => res.data)
+    .then(res => {
+      console.log("res", res);
+      return res.data;
+    })
     .then(data => {
+      console.log(data[0]);
       let JsonData;
       if (typeof data === "string") {
         const preJsonData = data.replace(/[();]/g, "");
