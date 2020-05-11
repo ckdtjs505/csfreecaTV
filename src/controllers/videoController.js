@@ -9,7 +9,7 @@ export const home = async (req, res) => {
     const videos = await Video.find({})
       .sort({ _id: -1 })
       .populate("creator");
-    res.render("home", { pageTitle: "Home", videos, broads });
+    res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     console.log(error);
     res.render("home", { pageTitle: "Home", videos: [] });
