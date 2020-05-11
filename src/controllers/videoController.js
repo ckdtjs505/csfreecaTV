@@ -6,7 +6,6 @@ import { getAfreecaBroadList } from "../models/apiLiveVideos";
 export const home = async (req, res) => {
   try {
     const broads = await getAfreecaBroadList();
-    console.log(broads[0]);
     const videos = await Video.find({})
       .sort({ _id: -1 })
       .populate("creator");

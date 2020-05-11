@@ -12,12 +12,11 @@ block content
                 videofile: video.fileUrl,
                 creator: video.creator
             })
-        //- each broad in broads    
-        //-     +liveVideoBlock({
-        //-         id : broad.broad_no,
-        //-         title: broad.broad_title,
-        //-         views: broad.total_view_cnt,
-        //-         videofile: broad.broad_thumb,
-        //-         creator: broad.user_id
-        //-     })
-    .div= broads 
+        each broad in broads    
+            +liveVideoBlock({
+                id : broad.broad_no,
+                title: broad.broad_title,
+                views: broad.total_view_cnt,
+                videofile: broad.broad_thumb,
+                creator: broad.user_id
+            })

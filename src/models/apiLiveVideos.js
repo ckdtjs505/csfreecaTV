@@ -10,7 +10,6 @@ export async function getAfreecaBroadList() {
       return res.data;
     })
     .then(data => {
-      console.log(data[0]);
       let JsonData;
       if (typeof data === "string") {
         const preJsonData = data.replace(/[();]/g, "");
