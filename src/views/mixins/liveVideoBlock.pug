@@ -1,6 +1,6 @@
 mixin liveVideoBlock(video = {})
     .liveVideoBlock
-        a(href=routes.videoDetail(video.id))
+        a(href=`http://play.afreecatv.com/${video.creator}/${video.id}/embed`)
             img.videoBlock__thumnbnail(src=`${video.videofile}`)
             img(src=`//profile.img.afreecatv.com/LOGO/${video.creator.substr(0,2)}/${video.creator}/${video.creator}.jpg`).avatarImg    
             .video__content
