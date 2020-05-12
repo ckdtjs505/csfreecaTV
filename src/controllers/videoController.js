@@ -16,14 +16,24 @@ export const home = async (req, res) => {
   }
 };
 
+export const getBroadList = async (req, res) => {
+  try {
+    res.json(await getAfreecaBroadList());
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
 export const search = async (req, res) => {
   const {
-    query: { search_query: searchingBy },
+    query: { search_query: searchingBy }
   } = req;
   let videos = [];
   try {
     videos = await Video.find({
-      title: { $regex: searchingBy, $options: "i" },
+      title: { $regex: searchingBy, $options: "i" }
     });
   } catch (error) {
     console.log(error);
@@ -37,13 +47,13 @@ export const getUpload = (req, res) =>
 export const postUpload = async (req, res) => {
   const {
     body: { title, description },
-    file: { location },
+    file: { location }
   } = req;
   const newVideo = await Video.create({
     fileUrl: location,
     title,
     description,
-    creator: req.user.id,
+    creator: req.user.id
   });
   req.user.videos.push(newVideo.id);
   req.user.save();
@@ -58,7 +68,7 @@ export const videoDetail = async (req, res) => {
       .populate("creator")
       .populate({
         path: "comment",
-        populate: { path: "creator" },
+        populate: { path: "creator" }
       });
     res.render("videoDetail", { pageTitle: `Video ${video.title}`, video });
   } catch (error) {
@@ -68,7 +78,7 @@ export const videoDetail = async (req, res) => {
 
 export const getEditVideo = async (req, res) => {
   const {
-    params: { id },
+    params: { id }
   } = req;
   try {
     const video = await Video.findById(id).populate("creator");
@@ -85,7 +95,7 @@ export const getEditVideo = async (req, res) => {
 export const postEditVideo = async (req, res) => {
   const {
     body: { title, description },
-    params: { id },
+    params: { id }
   } = req;
   try {
     await Video.findOneAndUpdate({ _id: id }, { title, description });
@@ -97,7 +107,7 @@ export const postEditVideo = async (req, res) => {
 
 export const deleteVideo = async (req, res) => {
   const {
-    params: { id },
+    params: { id }
   } = req;
   try {
     const video = await Video.findById(id).populate("creator");
@@ -115,7 +125,7 @@ export const deleteVideo = async (req, res) => {
 
 export const registerView = async (req, res) => {
   const {
-    params: { id },
+    params: { id }
   } = req;
   try {
     const video = await Video.findById(id);
@@ -131,7 +141,7 @@ export const registerView = async (req, res) => {
 
 export const postDeleteComment = async (req, res) => {
   const {
-    body: { commentId },
+    body: { commentId }
   } = req;
   try {
     await Comment.deleteOne({ _id: commentId });
@@ -147,13 +157,13 @@ export const postAddComment = async (req, res) => {
   const {
     params: { id },
     body: { comment },
-    user,
+    user
   } = req;
   try {
     const video = await Video.findById(id);
     const newComment = await Comment.create({
       text: comment,
-      creator: user.id,
+      creator: user.id
     });
     video.comment.push(newComment._id);
     video.save();

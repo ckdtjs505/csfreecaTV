@@ -40,6 +40,7 @@ const API = "/api";
 const REGISTER_VIEW = "/:id/view";
 const ADD_COMMENT = "/:id/comment";
 const DELETE_COMMENT = "/:id/deleteComment";
+const BROAD_LIST = "/:id/broadlist";
 
 const routes = {
   home: HOME,
@@ -92,7 +93,8 @@ const routes = {
   api: API,
   registerView: REGISTER_VIEW,
   addComment: ADD_COMMENT,
-  deleteComment: DELETE_COMMENT
+  deleteComment: DELETE_COMMENT,
+  broadList: BROAD_LIST
 };
 
 export default routes;
