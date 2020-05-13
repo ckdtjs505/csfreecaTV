@@ -33,7 +33,7 @@ const showBroadList = data => {
 if (video) {
   window.addEventListener("scroll", () => {
     if (
-      window.innerHeight + Math.ceil(window.scrollY) ===
+      window.innerHeight + Math.ceil(window.scrollY) >=
       document.body.scrollHeight
     ) {
       const loading = document.querySelector(".loader");
