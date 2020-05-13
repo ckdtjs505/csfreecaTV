@@ -36,10 +36,14 @@ if (video) {
       window.innerHeight + Math.ceil(window.scrollY) ===
       document.body.scrollHeight
     ) {
+      const loading = document.querySelector(".loader");
+      loading.style.display = "block";
       Axios({
         url: `/api/${(page += 1)}/broadlist`,
         method: "get"
-      }).then(object => showBroadList(object.data));
+      })
+        .then(object => showBroadList(object.data))
+        .then(data => (loading.style.display = "none"));
     }
   });
 }
