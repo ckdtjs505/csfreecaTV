@@ -18,10 +18,11 @@ block content
                     a(href=`/users${routes.changePassword}`)
                         h4 비밀번호 변경
     .user_video 
-        each video in user.videos    
+        each video in user.videos  
             +videoBlock({
                 id : video.id,
                 title: video.title,
                 views: video.views,
-                videofile: video.fileUrl
+                videofile: video.fileUrl,
+                creator: video.creator
             })
