@@ -17,8 +17,9 @@ export const home = async (req, res) => {
 };
 
 export const getBroadList = async (req, res) => {
+  const page = req.params.id;
   try {
-    res.json(await getAfreecaBroadList());
+    res.json(await getAfreecaBroadList(page));
   } catch (error) {
     res.status(400);
   } finally {
