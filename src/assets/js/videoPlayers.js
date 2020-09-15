@@ -1,28 +1,11 @@
 import getBlobDuration from "get-blob-duration";
+import util from "./util/util";
 
 export default class LivePlayer {
   constructor() {
     this.buildUI();
     this.bindDefaultEvent();
     this.videoPlayer.volume = 0.5;
-
-    this.formatDate = function formatDate(seconds) {
-      const secondsNumber = parseInt(seconds, 10);
-      let hours = Math.floor(secondsNumber / 3600);
-      let minutes = Math.floor((secondsNumber - hours * 3600) / 60);
-      let totalSeconds = secondsNumber - hours * 3600 - minutes * 60;
-
-      if (hours < 10) {
-        hours = `0${hours}`;
-      }
-      if (minutes < 10) {
-        minutes = `0${minutes}`;
-      }
-      if (seconds < 10) {
-        totalSeconds = `0${totalSeconds}`;
-      }
-      return `${hours}:${minutes}:${totalSeconds}`;
-    };
   }
 
   buildUI() {
@@ -88,20 +71,20 @@ export default class LivePlayer {
 
     this.videoPlayer.addEventListener("loadeddata", async () => {
       const duration = await getBlobDuration(this.videoPlayer.src);
-      const totalTimeString = this.formatDate(duration);
+      const totalTimeString = util.formatDate(duration);
       this.totalTime.innerHTML = totalTimeString;
-      setInterval(this.getCurrentTime, 1000);
+      setInterval(this.getCurrentTime.bind(this), 1000);
     });
 
     this.videoPlayer.addEventListener("ended", () => {
-      this.registerView();
+      util.registerView();
       this.videoPlayer.currentTime = 0;
       this.playBtn.innerHTML = '<i class="fas fa-play"></i>';
     });
 
-    this.volumeRange.addEventListener("input", (event) => {
+    this.volumeRange.addEventListener("input", event => {
       const {
-        target: { value },
+        target: { value }
       } = event;
       this.videoPlayer.volume = value;
       if (value >= 0.7) {
@@ -116,13 +99,12 @@ export default class LivePlayer {
     });
   }
 
-  static registerView() {
-    const videoId = window.location.href.split("/videos/")[1];
-    fetch(`/api/${videoId}/view`, {
-      method: "POST",
-    });
+  // 비디오 동작 시간 콜백 함수
+  getCurrentTime() {
+    this.currentTime.innerHTML = util.formatDate(Math.floor(this.videoPlayer.currentTime));
   }
 
+  // 전체 화면 클릭시
   goFullScreen() {
     if (this.videoContainer.requestFullscreen) {
       this.videoContainer.requestFullscreen();
