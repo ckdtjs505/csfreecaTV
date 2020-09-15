@@ -69,7 +69,7 @@ export default class LivePlayer {
       });
     });
 
-    this.videoPlayer.addEventListener("loadeddata", async () => {
+    this.videoPlayer.addEventListener("loadedmetadata", async () => {
       const duration = await getBlobDuration(this.videoPlayer.src);
       const totalTimeString = util.formatDate(duration);
       this.totalTime.innerHTML = totalTimeString;
