@@ -68,8 +68,8 @@ export default class LivePlayer {
         }
       });
     });
-
-    this.videoPlayer.addEventListener("canplay", async () => {
+    // 비디오 플레이어 로드 시점
+    this.videoPlayer.addEventListener("loadeddata", async () => {
       const duration = await getBlobDuration(this.videoPlayer.src);
       const totalTimeString = util.formatDate(duration);
       this.totalTime.innerHTML = totalTimeString;

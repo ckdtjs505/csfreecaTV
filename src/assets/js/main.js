@@ -4,4 +4,4 @@ import "./upload";
 import "./addComment";
 import "./home";
 
-console.log(new LivePlayer());
+window.livePlayer = new LivePlayer();
