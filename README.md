@@ -9,10 +9,10 @@
   <p align="center">
     Cloning afreecaTV with Vanilla and NodeJS
     <br />
-    <a href="https://intense-sands-29573.herokuapp.com/"><strong>Explore the docs »</strong></a>
+    <a href="https://csfreecatv.onrender.com/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://intense-sands-29573.herokuapp.com/">View Demo</a>
+    <a href="https://csfreecatv.onrender.com/">View Demo</a>
     ·
     <a href="https://github.com/ckdtjs505/csfreecaTV/issues">Report Bug</a>
     ·
@@ -84,7 +84,4 @@ npm run dev:assets
 ```
 ## Contect 
  email : ckdtjs505@afreecatv.com
- Project Link: https://intense-sands-29573.herokuapp.com/
-
-## Acknowledgements
-- [Nomadcoder](https://academy.nomadcoders.co/) 
+ Project Link: [lick](https://csfreecatv.onrender.com/)
