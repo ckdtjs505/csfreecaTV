@@ -1,4 +1,6 @@
 /* eslint-disable import/first */
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 import "@babel/polyfill";
 import dotenv from "dotenv";
 
