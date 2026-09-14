@@ -1,0 +1,35 @@
+.form-container {
+  & #upload-name {
+    width: calc(100% - 110px);
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  
+  & #upload-label {
+    margin-left: 10px;
+    width: 100px;
+    padding: 0;
+    line-height: 48px;
+    height: 48px;
+    text-align: center;
+    color: white;
+    background-color: var(--lineColor);
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: top;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background-color: #1a56d4;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(43, 108, 251, 0.2);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

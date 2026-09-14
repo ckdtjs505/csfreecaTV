@@ -1,4 +1,5 @@
-import "../scss/styles.scss";
+import "@babel/polyfill";
+import "../css/styles.css";
 import LivePlayer from "./videoPlayers";
 import "./upload";
 import "./addComment";

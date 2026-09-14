@@ -1,0 +1,121 @@
+.video {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 2rem;
+  margin-top: 2rem;
+}
+
+.videoBlock,
+.liveVideoBlock {
+  background: var(--glassBg);
+  border: 1px solid var(--glassBorder);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+  }
+
+  & a {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+
+    & .videoBlock__thumnbnail {
+      background-color: #e5e7eb;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &:hover .videoBlock__thumnbnail {
+    transform: scale(1.05);
+  }
+
+  & .video__info-container {
+    display: flex;
+    padding: 1rem;
+    position: relative;
+    background: white;
+    flex-grow: 1;
+    z-index: 1;
+  }
+
+  & .avatarImg {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+    border: 2px solid var(--bgColor);
+  }
+
+  & .video__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100% - 3.5rem); /* subtract avatar width + margin */
+    overflow: hidden;
+  }
+
+  & .videoBlock__title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 0.4rem 0;
+    color: var(--textColor);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  & .videoBlock__views {
+    font-size: 13px;
+    color: var(--textLight);
+    display: flex;
+    align-items: center;
+
+    & img {
+      width: 14px;
+      height: 14px;
+      margin-right: 0.3rem;
+      opacity: 0.7;
+    }
+    
+    & .videoBlock__views_title {
+      margin: 0;
+      font-weight: 500;
+    }
+  }
+}
+
+.loader {
+  display: none;
+  border: 4px solid var(--bgColor);
+  border-top: 4px solid var(--lineColor);
+  border-radius: 50%;
+  margin: 3rem auto;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 768px) {
+  .video {
+    grid-template-columns: 1fr;
+    grid-gap: 1.5rem;
+    margin-top: 1rem;
+  }
+}

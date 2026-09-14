@@ -9,6 +9,9 @@
   video {
     width: 100%;
     max-width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    background-color: black;
   }
   .videoPlayer__controls {
     opacity: 0;

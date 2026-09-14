@@ -21,21 +21,14 @@ const config = {
         ]
       },
       {
-        test: /\.(scss)$/,
+        test: /\.(css)$/,
         use: ExtractCSS.extract([
           {
-            loader: "css-loader"
+            loader: "css-loader",
+            options: { importLoaders: 1 }
           },
           {
-            loader: "postcss-loader",
-            options: {
-              plugins() {
-                return [autoprefixer({ overrideBrowserslist: "cover 99.5%" })];
-              }
-            }
-          },
-          {
-            loader: "sass-loader"
+            loader: "postcss-loader"
           }
         ])
       }

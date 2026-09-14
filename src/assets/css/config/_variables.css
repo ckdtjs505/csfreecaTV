@@ -1,0 +1,9 @@
+:root {
+  --bgColor: #f3f4f6;
+  --lineColor: #3b82f6;
+  --textColor: #1f2937;
+  --textLight: #6b7280;
+  --glassBg: rgba(255, 255, 255, 0.7);
+  --glassBorder: rgba(255, 255, 255, 0.5);
+  --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}

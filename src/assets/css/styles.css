@@ -1,0 +1,16 @@
+@import "./config/_variables.css";
+@import "./config/reset.css";
+@import "./main.css";
+
+@import "./partials/header.css";
+@import "./partials/footer.css";
+@import "./partials/socialLogin.css";
+@import "./partials/videoPlayer.css";
+@import "./partials/videoRecorder.css";
+@import "./partials/message.css";
+
+@import "./pages/home.css";
+@import "./pages/login.css";
+@import "./pages/videoDetail.css";
+@import "./pages/userDetail.css";
+@import "./pages/editProfile.css";
