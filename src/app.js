@@ -20,8 +20,6 @@ import "./passport";
 
 const app = express();
 
-const CokieStore = MongoStore(session);
-
 app.use(helmet());
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
@@ -38,7 +36,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    store: new CokieStore({ mongooseConnection: mongoose.connection })
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL_PROD })
   })
 );
 
