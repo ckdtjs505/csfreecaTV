@@ -12,7 +12,7 @@ export const home = async (req, res) => {
     res.render("home", { pageTitle: "Home", videos, broads });
   } catch (error) {
     console.log(error);
-    res.render("home", { pageTitle: "Home", videos: [] });
+    res.render("home", { pageTitle: "Home", videos: [], broads: [] });
   }
 };
 
